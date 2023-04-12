@@ -1,0 +1,9 @@
+com\hh\sukku\common\beans\PagedResponse.class
+com\hh\sukku\common\util\ErrorCodes.class
+com\hh\sukku\common\params\ParamsFileOperations.class
+com\hh\sukku\common\util\Constants.class
+com\hh\sukku\common\beans\Response.class
+com\hh\sukku\common\exception\CommonException.class
+com\hh\sukku\common\App.class
+com\hh\sukku\common\exception\ResponseErrorHandler.class
+com\hh\sukku\common\util\BeanConfig.class

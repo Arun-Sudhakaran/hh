@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	
+	<Appenders>
+		
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+		</Console>
+
+		<RollingFile name="RollingFile"
+			fileName="./logs/hh_bl.log"
+			filePattern="./logs/$${date:yyyy-MM}/hh_bl-%d{-dd-MM-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} (%F:%L) %X{TransactionId} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<!-- rollover on startup, daily and when the file reaches 10 MegaBytes -->
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+	</Appenders>
+
+	<Loggers>
+		<!-- LOG everything at INFO level -->
+		<Root level="info">
+			<AppenderRef ref="Console" />
+		</Root>
+
+		<Logger name="com.hh.sukku" level="trace">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger name="org.hibernate" level="info">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+		
+		<Logger name="org.hibernate.SQL" level="debug" additivity="false">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger name="org.zalando.logbook" level="trace">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger name="org.springframework" level="info">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<Logger
+			name="org.springframework.web.filter.CommonsRequestLoggingFilter"
+			level="debug" />
+
+	</Loggers>
+
+</Configuration>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: auth-service
+Implementation-Version: 1.0.0
+Built-By: arun.sudhakaran
+Implementation-Vendor-Id: com.hh.sukku
+Build-Jdk: 1.8.0_231
+Implementation-URL: https://spring.io/projects/spring-boot/hh/auth-ser
+ vice
+Created-By: Maven Integration for Eclipse
+
